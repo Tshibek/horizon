@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block text_hero %}
+    {% include 'hero_text.html' %}
+  {% endblock %}
+{% block content %}
+  {% include 'horizon/assets/layout_stats.html' %}
+  {% include 'horizon/assets/layout_search.html' %}
+  {% include 'horizon/assets/AboutServer.html' %}
+
+{% endblock content %}
+{% block extrascripts %}
+  <script>
+      $(document).ready(function () {
+          $('[data-toggle="tooltip"]').tooltip();
+      });
+  </script>
+{% endblock %}

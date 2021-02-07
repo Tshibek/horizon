@@ -1,0 +1,60 @@
+<footer class="section footer-classic context-dark bg-image jumbo" style="background-color:#5f463A">
+    <div class="container py-5">
+        <div class="row row-30">
+            <div class="col-md-4 col-xl-5">
+                <div class="pr-xl-4">
+                    {#            <a class="brand" href="index.html"><img class="brand-logo-light" src="/media/skyhorizon/skyhorizon.png"#}
+                    {#                                                                     alt="" width="200" height="120"></a>#}
+                    <p> Skyhorizon jest projektem niezależnym i w żaden sposób nie powiązanym z Mojang AB.</p>
+                    <!-- Rights-->
+                    <p class="rights"><span>©  </span><span
+                            class="copyright-year">2019</span><span> </span><span>SkyHorizon.pl</span><span>. </span><span>All Rights Reserved.</span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5>Informacje</h5>
+                <ul class="nav-list">
+                    <li><a href="{% url 'horizon:rules' %}">Regulamin</a></li>
+                    <li><a href="{% url 'horizon:faq' %}">FAQ</a></li>
+                    <li><a href="{% url 'horizon:contact' %}">Kontakt</a></li>
+                    <li><a href="#">Polityka prywatności</a></li>
+                    <li><a href="#">Płatności</a></li>
+                    <li><a href="#">Reklamacje</a></li>
+
+                </ul>
+            </div>
+            <div class="col-md-4 col-xl-3">
+                <h5>SkyHorizon.pl</h5>
+                <ul class="nav-list">
+                    <li><a href="">Realizacja Voucher'ów</a></li>
+                    <li><a href="{% url 'horizon:admins' %}">Administracja</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'user:profile username=user.username' %}">Panel gracza</a></li>
+                    {% endif %}
+                    <li><a href="{% url  'shop:shop'%}">Sklep</a></li>
+                    <li><a href="{% url 'horizon:ranking' %}">Ranking</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row no-gutters social-container">
+        <div class="col"><a class="social-inner" href="#"><span
+                class="icon fab fa-facebook-f"></span><span>Facebook</span></a>
+        </div>
+        <div class="col"><a class="social-inner" href="http://discord.gg/CqSFmkK"><span
+                class="icon fab fa-discord"></span><span>Discord</span></a>
+        </div>
+        {% if request.user.is_authenticated %}
+            <div class="col">
+            <a class="social-inner" href="ts3server://skyhorizon.pl/?nickname={{ user.username }}"><span
+                    class="icon fab fa-teamspeak"></span><span>TeamSpeak3</span></a>
+        {% else %}
+            <div class="col"><a class="social-inner" href="ts3server://skyhorizon.pl/?nickname=NieZalogowany"><span
+                class="icon fab fa-teamspeak"></span><span>TeamSpeak3</span></a>
+        {% endif %}
+        </div>
+        </div>
+
+</footer>
+

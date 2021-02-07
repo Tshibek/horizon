@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+{% block text_hero %}
+    {% include 'hero_text.html' %}
+  {% endblock %}
+{% block content %}
+
+  <div class="jumbotron jumbotron-fluid bg-brown-2">
+  <div class="container">
+
+    <div class="my-5 text-center">
+      <h1 class="pink-text font-weight-bold"><i class="fas fa-newspaper"></i> Aktualności</h1>
+      <h5 class="text-white">Nowe aktualizacje na serwerze</h5>
+
+    </div>
+    {% for new in news %}
+      <div class="news_card">
+        <div class="card black-card text-center my-4">
+          <div class="card-header">
+            <h2 class="">{{ new.title }}</h2>
+          </div>
+          <div class="card-body ">
+            <div class="float-left mr-2">
+              <img src="{{ new.img.url }}" height="120" width="200px">
+            </div>
+            <div class="p-content card-text my-2 mx-2 text-justify">
+              {{ new.content |safe }}
+            </div>
+          </div>
+          <div class="card-footer text-muted">
+            <div class="float-left">
+              <span>Dodano: <span class="green-text">{{ new.created }}</span> </span>
+            </div>
+            <a href="{% url 'horizon:news_detail' pk=new.pk %}" class="mr-5 pr-5 green-text">
+              Czytaj wiecej
+            </a>
+            <div class="float-right">
+              <span>Przez: <span class="green-text">{{ new.admin.user.username }}</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    <div class="my-4">
+      <nav aria-label="Page navigation example">
+        {% if is_paginated %}
+          <ul class="pagination justify-content-end">
+            {% if page_obj.has_previous %}
+              <li class="page-item"><a class="page-link " href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+              </li>
+            {% else %}
+              <li class="page-item disabled"><span>&laquo;</span></li>
+            {% endif %}
+            {% for i in paginator.page_range %}
+              {% if page_obj.number == i %}
+                <li class="page-item active"><a class="page-link bg-success border-success" href="?page={{ i }}">{{ i }}</a></li>
+              {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+              <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+            {% else %}
+              <li class="page-item disabled"><span>&raquo;</span></li>
+            {% endif %}
+          </ul>
+        {% endif %}
+      </nav>
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+{% endblock %}

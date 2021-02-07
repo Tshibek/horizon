@@ -1,0 +1,18 @@
+<div class="col-lg-6">
+  <div class="my-4">
+    <h5 class="text-center">Najlepsi gracze w kopaniu kamienia</h5>
+  </div>
+  {% for stone in pick_stone %}
+    <div class="bg-ranking mt-2 p-2">
+      <div class="row">
+        <div class="col-lg-2 col-2 text-center">1</div>
+        <div class="col-lg-2 col-2 float-left"><img src="https://minotar.net/helm/{{ stone.user.username }}/35.png"
+                                                    class="img-fluid"></div>
+        <div class="col-lg-5 col-5 text-center">{{ stone.user.username }}</div>
+        <div class="col-lg-3 col-3 text-center">{{ stone.all_stone }} stone</div>
+      </div>
+
+    </div>
+  {% endfor %}
+</div>
+

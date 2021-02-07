@@ -1,0 +1,41 @@
+<div class="jumbotron jumbotron-fluid bg-brown-2">
+<div class="">
+  <div class="py-4">
+    <h2 class="text-center fonts-own ">LISTA ZBANOWANYCH OSÓB</h2>
+    <p class="text-center text-white">Dziesięć ostatnich osób, które złamały regulamin i zostały za to ukarane!</p>
+  </div>
+  <div class="container">
+    <table class="table text-white table-borderless ">
+      <thead class="thead-green">
+      <tr>
+        <th scope="col" class="pl-5">#</th>
+        <th scope="col" class="text-center">Nickname</th>
+        <th scope="col" class="text-center">Typ</th>
+        <th scope="col" class="text-center">Powód</th>
+        <th scope="col" class="text-center">Admin</th>
+      </tr>
+      </thead>
+      <tbody class="green-text ">
+      {% for bans in banned %}
+        <tr>
+          <td class='pl-4'>
+            <img src="https://crafatar.com/renders/head/{{ bans.user.uuid }}?helm&scale=3&overlay"/>
+          </td>
+          <td class='text-center '>{{ bans.user.username }}</td>
+          <td class='text-center'>
+            {% if bans.type == 'PERMAMENTLY' %}
+            PERMAMENTNIE
+            {% else %}
+            CZASOWO
+            {% endif %}
+          </td>
+          <td class='text-cente '>{{ bans.reason }}</td>
+          <td class='text-center'>{{ bans.admin.username }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div>

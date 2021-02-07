@@ -1,0 +1,17 @@
+<div class="col-lg-6">
+  <div class="my-4">
+    <h5 class="text-center">Największa liczba połączeń</h5>
+  </div>
+  {% for join in join_count %}
+    <div class="bg-ranking mt-2 p-2">
+      <div class="row">
+        <div class="col-lg-2 col-2 text-center">1</div>
+        <div class="col-lg-2 col-2 float-left"><img src="https://minotar.net/helm/{{ join.user.username }}/35.png"
+                                                    class="img-fluid"></div>
+        <div class="col-lg-5 col-5 text-center">{{ join.user.username }}</div>
+        <div class="col-lg-3 col-3 text-center">{{ join.join_count }} poł.</div>
+      </div>
+
+    </div>
+  {% endfor %}
+</div>

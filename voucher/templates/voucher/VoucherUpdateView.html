@@ -1,0 +1,36 @@
+{% extends 'layout2.html' %}
+{% load widget_tweaks %}
+{% block content %}
+  {% include 'ImgText.html' %}
+
+  <div class="jumbotron jumbotron-fluid bg-body mt-5">
+    <div class="container text-center animated lightSpeedIn delay-2s text-white">
+      {% if messages %}
+        {% for message in messages %}
+          <div {% if message.tags %}{% if message.tags == "error" %}class="alert alert-danger text-center"
+               {% else %}class="alert alert-{{ message.tags }} text-center"{% endif %}{% endif %} role="alert">
+            <h4 class="alert-heading">{% if message.tags == "success" %}Dziękujemy!{% else %}
+              Przepraszamy!{% endif %}</h4>
+            <p class="text-border">{{ message | safe }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+      <h1 class="green-text">Sprawdż Voucher!</h1>
+      <p class="">Doładuj swoje konto za pomocą vouchera!</p>
+
+      <div class="d-flex justify-content-center h-100">
+
+        <form method="post" action="">
+          {% csrf_token %}
+          <div class="pt-2">
+            {% render_field form.voucher class="form-control" placeholder="Wpisz kod"%}
+          </div>
+          <div class="pt-3">
+            <button type="submit" class="btn btn-green">Doładuj</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

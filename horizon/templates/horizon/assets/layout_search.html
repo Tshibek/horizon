@@ -1,0 +1,21 @@
+<div class="jumbotron jumbotron-fluid bg-brown-2 jumbo">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-12 text-center brown-text">
+          <h1 class="font-weight-bold ">Wyszukaj gracza</h1>
+            <p class="pl-3 ">Sprawdź ranking i statystyki innego gracza!</p>
+        </div>
+      </div>
+
+      {% include 'horizon/assets/SearchBox.html' %}
+      {% include 'horizon/assets/layout_ranking.html' %}
+
+    <div class="col-lg-12 text-center">
+          <div class="my-5">
+            <p><a class="h5" href="{% url 'horizon:ranking' %}">Sprawdź cały ranking</a></p>
+          </div>
+        </div>
+
+    </div>
+</div>

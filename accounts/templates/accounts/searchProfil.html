@@ -1,0 +1,122 @@
+{% extends 'layout2.html' %}
+{% block content %}
+  {% include 'ImgText.html' %}
+<div class="jumbotron jumbotron-fluid bg-own">
+    <div class="container text-center">
+      <h1 id="h2-Ald" class="text-white">Statystyki Gracza</h1>
+    {% if no %}
+      <div class="pt-3 pb-5 text-center">
+      <span class="green-text h4">Nie znaleziono gracza o nicku <q class="font-weight-bold"> {{ no }} </q></span>
+      </div>
+      {% include 'horizon/assets/SearchBox.html' %}
+    {% else %}
+      {% for user in x %}
+      <h3 id="h2-Ald" class="green-text">{{ user.username }}</h3>
+        {% if user.uuid %}
+      <img src='https://crafatar.com/renders/head/{{user.uuid}}?scale=7&overlay' class='box-2'/>
+        {% else %}
+          <img class="box-2"
+               src="https://crafatar.com/renders/head/606e2ff0-ed77-4842-9d6c-e1d3321c7838?helm&scale=3&overlay?scale=8&overlay">
+        {% endif %}
+      <h3 class='moneygracz text-white'>Money: <span class='green-text'>{{user.profile.money_is}}</span> zl</h3>
+      <br/>
+      <div class='row'>
+        <div class='col-lg-4 col-sm-6 mt-sm-4'>
+          <div class='card thead-green'>
+            <div class='card-body'>
+              <h5 class='card-title'>Zabojstwa:</h5>
+              <p class='card-text'>{{user.profile.kills}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-lg-4 col-sm-6 mt-sm-4'>
+          <div class='card thead-green'>
+            <div class='card-body'>
+              <h5 class='card-title'>Rank:</h5>
+              <p class='card-text font-weight-bold'>{{user.profile.rank}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-lg-4 col-sm-6 mt-sm-4'>
+          <div class='card thead-green'>
+            <div class='card-body'>
+              <h5 class='card-title'>Zgony:</h5>
+            <p class='card-text'>{{user.profile.deaths}}</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class='col-lg-4 col-sm-6 mt-4'>
+          <div class='card thead-green'>
+            <div class='card-body'>
+              <h5 class='card-title'>Pierwsza wizyta:</h5>
+              <p class='card-text'>{{ user.date_joined }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-lg-4 col-sm-6 mt-4'>
+          <div class='card thead-green'>
+            <div class='card-body'>
+              <h5 class='card-title'>Ostatnia wizyta:</h5>
+              <p class='card-text'>{{ user.last_login }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-lg-4 col-sm-6 mt-4'>
+          <div class='card thead-green'>
+            <div class='card-body'>
+              <h5 class='card-title'>Ilośc wejśc:</h5>
+              <p class='card-text'>{{user.profile.join_count}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-lg-6 col-sm-6 mt-4'>
+          <div class='card thead-green'>
+            <div class='card-body'>
+              <h5 class='card-title'>Stone Level:</h5>
+              <p class='card-text'>{{ user.profile.stone.level }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-lg-6 col-sm-6 mt-4'>
+          <div class='card thead-green'>
+            <div class='card-body'>
+              <h5 class='card-title'>Ilośc wejśc:</h5>
+              <p class='card-text'>{{user.profile.join_count}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-lg-6 col-sm-6 mt-4'>
+          <div class='card thead-green'>
+            <div class='card-body'>
+              <h5 class='card-title'>Zbanowany?</h5>
+              <p class='card-text'>{% if user.profile.ban%}TAK{% else %}NIE{% endif %}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-lg-6 col-sm-6 mt-4'>
+          <div class='card thead-green'>
+            <div class='card-body'>
+              <h5 class='card-title'>Wyciszony?</h5>
+              <p class='card-text'>{% if user.profile.mute%}TAK{% else %}NIE{% endif %}</p>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      {% endfor %}
+    {% endif %}
+    </div>
+  </div>
+
+{% endblock %}

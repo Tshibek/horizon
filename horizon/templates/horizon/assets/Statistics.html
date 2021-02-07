@@ -1,0 +1,53 @@
+<div class="col-lg-7">
+  <p class="upper h2 brown-text font-weight-bold">Statystyki serwera</p>
+  <div class="row pt-5">
+
+    <div class="col-lg-4 col-md-4">
+      {% if join_count.user.uuid and join_count.join_count >= 1 %}
+        <img class="box py-2" data-toggle="tooltip" title="{{ join_count.user.username }}"  data-placement="top"
+             width="80" height="80" title="TakinTu"
+             src="https://crafatar.com/renders/head/{{ join_count.user.uuid }}?helm&scale=3&overlay?scale=8&overlay">
+      {% else %}
+        <img class="box py-2" data-toggle="tooltip" title="{{ join_count.user.username }}"
+             src="https://crafatar.com/renders/head/606e2ff0-ed77-4842-9d6c-e1d3321c7838?helm&scale=3&overlay?scale=8&overlay">
+      {% endif %}
+      <div class="clearfix"></div>
+      <strong class="">
+        {% if join_count.join_count == None %}0{% else %}
+          {{ join_count.join_count }}{% endif %}</strong>
+      <p class="uppercase">NAJWIĘCEJ WYKONANYCH POŁĄCZEŃ</p>
+    </div>
+
+    <div class="col-lg-4 col-md-4">
+      {% if coins.user.uuid and coins.money_is >= 1 %}
+        <img class="box py-2" data-toggle="tooltip" width="80" height="80" data-placement="top"
+             title="{{ coins.user.username }}"
+             src="https://crafatar.com/renders/head/{{ coins.user.uuid }}?helm&scale=3&overlay?scale=8&overlay">
+      {% else %}
+        <img class="box py-2" data-toggle="tooltip" title="{{ coins.user.username }}"
+             src="https://crafatar.com/renders/head/606e2ff0-ed77-4842-9d6c-e1d3321c7838?helm&scale=3&overlay?scale=8&overlay">
+      {% endif %}
+      <div class="clearfix"></div>
+      <strong>{% if coins.money_is %}{{ coins.money_is }}{% else %}0{% endif %}</strong>
+      <p class="uppercase">NAJWIĘCEJ POSIADANYCH SKYCOINS</p>
+    </div>
+
+    <div class="col-lg-4 col-md-4">
+      {% if max_stone.user.uuid and max_stone.all_stone >= 1 %}
+        <img class="box py-2" width="80" height="80" data-toggle="tooltip" data-placement="top"
+             title="{{ max_stone.user.username }}"
+             src="https://crafatar.com/renders/head/{{ max_stone.user.uuid }}?helm&scale=3&overlay?scale=8&overlay">
+      {% else %}
+        <img class="box py-2" data-toggle="tooltip" title="{{ max_stone.user.username }}"
+             src="https://crafatar.com/renders/head/606e2ff0-ed77-4842-9d6c-e1d3321c7838?helm&scale=3&overlay?scale=8&overlay">
+
+
+      {% endif %}
+      <div class="clearfix"></div>
+      <strong>{% if max_stone.all_stone %}{{ max_stone.all_stone }}{% else %}0{% endif %}</strong>
+      <p class="uppercase">NAJWIĘCEJ WYKOPANYCH BLOKÓW</p>
+    </div>
+
+  </div>
+
+</div>

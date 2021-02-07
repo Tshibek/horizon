@@ -1,0 +1,57 @@
+<div class="jumbotron jumbotron-fluid bg-own-2 shop">
+  <div class="container text-center text-white">
+    <h1 class="green-text animated bounceInDown slow">ITEMSHOP</h1>
+    <p class="py-3 h6 animated fadeInLeft slow">Tutaj możesz doładować swój portfel na serwerze, lub kupić unbana!</p>
+    <div class="text-center">
+      {#      <?php if (isset($okmsg)) { ?>#}
+      {#        <div class="alert alert-success"><?php echo $okmsg; ?></div><?php } ?>#}
+      {#      <?php if (isset($errormsg)) { ?>#}
+      {#        <div class="alert alert-danger"><?php echo $errormsg; ?></div><?php } ?>#}
+    </div>
+    <div class="row">
+
+      <!-- DOLADUJ KONTO-->
+      <div class="col-lg-6 my-sm-5 pt-5 animated rollIn slow delay-1s">
+        <div class="card black-card mx-sm-1 p-3">
+          <div class="card circle p-3 my-card-2 text-center">
+            <i class="fas fa-wallet"></i>
+          </div>
+          <div class="green-text text-center mt-5">
+            <h5>Doładuj Portfel</h5>
+          </div>
+          <div class="pt-4">
+            <p>Dokonuj zakupów bezpośrednio na serwerze za pomocą </p>
+            <div class="col-lg-12 text-center p-3">
+              <button href="" class="btn btn-green btn-lg ml-2 mr-4">SMS</button>
+              <a href="" class="btn btn-green btn-lg mr-4">PSC</a>
+              <a href="" class="btn btn-green btn-lg">PayPal/Przelew</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ODBANUJ KONTO-->
+      <div class="col-lg-6 my-sm-5 pt-5 animated rotateIn slow delay-1s">
+        <div class="card black-card mx-sm-1 p-3">
+          <div class="card circle p-3 my-card-2 text-center">
+            <i class="fas fa-unlock"></i>
+          </div>
+          <div class="green-text text-center mt-5">
+            <h5>Odbanuj Konto</h5>
+          </div>
+          <div class="pt-4">
+            <p>Odbanuj swoje konto by znów cieszyć się grą za pomocą </p>
+            <div class="col-lg-12 text-center p-3">
+              <a href="" class="btn btn-green btn-lg ml-4 mr-4">SMS</a>
+              <a href="" class="btn btn-green btn-lg mr-4">PSC</a>
+              <a href="" class="btn btn-green btn-lg mr-4">PayPal/Przelew</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

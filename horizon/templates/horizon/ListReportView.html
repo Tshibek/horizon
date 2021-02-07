@@ -1,0 +1,124 @@
+{% extends 'layout2.html' %}
+{% block content %}
+  {% include '_modal.html' %}
+  {% include 'ImgText.html' %}
+  <div class="jumbotron jumbotron-fluid bg-black mt-5">
+  <div class="container table-responsive">
+
+    <div class="text-center text-white pt-3 pb-5">
+      <h1 class="font-weight-bold green-text">LISTA ZGŁOSZEŃ</h1>
+    </div>
+    {% if admin %}
+      <div class="row text-center pb-5">
+        <div class="col-lg-3 col-md-3 col-sm-6 pt-sm-2">
+          <a href="{% url 'horizon:report_list' %}" class="btn btn-green">WSZYSTKIE</a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 pt-sm-2">
+          <a href="{% url 'horizon:report_list_accept' %}" class="btn btn-green">ZAAKCEPTOWANE</a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 pt-sm-2">
+          <a href="{% url 'horizon:report_list_pending' %}" class="btn btn-green">OCZEKUJĄCE</a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 pt-sm-2">
+          <a href="{% url 'horizon:report_list_decline' %}" class="btn btn-green">ODRZUCONE</a>
+        </div>
+      </div>
+    {% endif %}
+
+    <table id="mytable" class="table table-bordred table-striped text-white">
+
+      <thead class="text-center">
+      <tr>
+        <th>Zgłoszony Gracz</th>
+        <th>Status</th>
+        <th>Zgłaszający</th>
+        <th>Data</th>
+        <th>Moderator</th>
+        <th>Zobacz</th>
+        {% if admin %}
+          <th>Edytuj</th>
+        {% endif %}
+      </tr>
+
+      </thead>
+      <tbody>
+
+      {% for report in reports %}
+        {% include 'horizon/assets/TableReport.html' %}
+        <div class="modal fade" id="detail-{{ report.pk }}" tabindex="-1" role="dialog" aria-labelledby="detail"
+             aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="detailLabel">{{ report.title }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="text-center">
+                  <div class="pt-1">
+                    <h2>Wiadomość:</h2>
+                    <p class="pt-2">{{ report.content }}</p>
+                  </div>
+                  <div class="pt-3">
+                    <h2>Dowody:</h2>
+                    <p class="pt-2"><a target="_blank" rel="noopener noreferrer"
+                                       href="{{ report.evidence }}">{{ report.evidence }}</a></p>
+                  </div>
+
+                </div>
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      {% endfor %}
+      </tbody>
+
+    </table>
+
+    <div class="clearfix"></div>
+    <div class="float-right">
+      <nav class="mt-3">
+        <ul class="pagination pagination-sm justify-content-center">
+          {% if reports.has_previous %}
+            <li class="page-item"><a href="?page={{ reports.previous_page_number }}" class="page-link">Previous</a>
+            </li>
+          {% else %}
+            <li class="page-item disabled"><span class="page-link">Previous</span></li>
+          {% endif %}
+          {% for a in paginator.page_range %}
+            {% if reports.number == a %}
+              <li class="page-item active"><span>{{ a }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+              <li class="page-item"><a href="?page={{ a }}" class="page-link">{{ a }}</a></li>
+            {% endif %}
+          {% endfor %}
+          {% if reports.has_next %}
+            <li class="page-item"><a href="?page={{ reports.next_page_number }}" class="page-link">Next</a></li>
+          {% else %}
+            <li class="page-item disabled"><span class="page-link">Next</span></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+  </div>
+
+{% endblock %}
+{% block extrascripts %}
+  {% if admin %}
+    <script type="text/javascript">
+        $(".update-btn").each(function () {
+            $(this).modalForm({formURL: $(this).data('id')});
+        });
+
+    </script>
+  {% endif %}
+{% endblock %}

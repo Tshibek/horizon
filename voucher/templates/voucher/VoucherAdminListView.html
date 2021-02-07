@@ -1,0 +1,38 @@
+{% extends 'layout2.html' %}
+{% block content %}
+  {% include 'ImgText.html' %}
+<div class="jumbotron jumbotron-fluid bg-body mt-5">
+  <div class="container">
+  <div class=" text-center">
+      <h1 class="green-text">Vouchery</h1>
+      <p class="text-white">Lista dostępnych voucher'ów</p>
+    </div>
+    <table class="table text-white table-borderless ">
+      <thead class="bg-jump-2">
+      <tr>
+        <th scope="col" class="text-center">Kod</th>
+        <th scope="col" class="text-center">Wartość</th>
+        <th scope="col" class="text-center">Dostępny</th>
+        <th scope="col" class="text-center">Dodane</th>
+        <th scope="col" class="text-center">Ważność</th>
+      </tr>
+      </thead>
+      <tbody class="green-text text-center">
+      {% for list in object_list %}
+        <tr>
+          <td class='pl-4 animated fadeInLeft slower delay-2s'>
+            {{ list.voucher }}
+          </td>
+
+          <td class='text-center animated fadeInLeft slower delay-2s'>{{ list.money }} zł</td>
+          <td class='text-center animated fadeInLeft slower delay-2s'>{% if list.used == 0 %}TAK{% else %}NIE{% endif %}</td>
+          <td class='text-center animated fadeInLeft slower delay-2s'>{{ list.created }}</td>
+          <td class='text-center animated fadeInLeft slower delay-2s'>{{ list.expires }}</td>
+
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

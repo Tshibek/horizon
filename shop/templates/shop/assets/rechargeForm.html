@@ -1,0 +1,66 @@
+{% load widget_tweaks %}
+{% if admin %}
+  <form method="post" action="">
+    {% csrf_token %}
+
+    <div class="modal-header">
+      <h3 class="modal-title">Doładuj Portfel</h3>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <p>Dokonuj zakupów bezpośrednio na serwerze za pomocą </p>
+
+    </div>
+
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary">Wykonaj</button>
+    </div>
+
+  </form>
+{% endif %}
+
+
+<label>
+  <p>Wyslij SMS o tresci
+    <strong class="green-text">MSMS.SHPORTFEL</strong> pod numer
+    <strong class="green-text"><label id="number">71480</label> </strong>
+  </p>
+  <p>
+    Koszt SMS to:
+    <select class="selector-price green-text" id="select-price" onchange="setNumber()">
+      <option selected="selected">1.23 zł</option>
+      <option>2.46 zł</option>
+      <option>3.69 zł</option>
+      <option>4.92 zł</option>
+      <option>6.15 zł</option>
+      <option>7.38 zł</option>
+      <option>11.07 zł</option>
+      <option>17.22 zł</option>
+      <option>23.37 zł</option>
+      <option>24.60 zł</option>
+      <option>30.75 zł</option>
+    </select>
+
+  </p>
+  <p>
+    Twoje konto zostanie doladowane o :
+    <strong class="green-text"><label id="addmoney-info">1.23 zł</label></strong>
+  </p>
+</label>
+
+<form method="post">
+  <input type="hidden" name="send" value=""/>
+  <div class="pt-1">
+    <input class="form-control-sm" name="code" placeholder="Kod sms" type="text"/>
+  </div>
+  <div class="pt-3">
+    <input class="form-control-sm" name="nickname" placeholder="Nickname" type="text"/>
+  </div>
+  <br/>
+  <div class="buttonshopbuy">
+    <button class="btn btn-md btn-green" type="" name="szukaj"><i> Zakup</i></button>
+  </div>
+</form>

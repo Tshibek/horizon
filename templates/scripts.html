@@ -1,0 +1,46 @@
+{% load static %}
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/smsValue.min.js' %}"></script>
+<script src="{% static 'js/jquery.goTop.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/pass.min.js' %}"></script>
+<script src="{% static 'js/jquery.bootstrap.modal.forms.min.js' %}"></script>
+
+<!--  TOOLTIP -->
+<script type="text/javascript">
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+
+<!--  GO TO UP  -->
+<script type="text/javascript">
+    $(function () {
+
+        $('#go-top').goTop({
+
+            // top offset
+            scrollTop: 600,
+
+            // scroll speed in milliseconds
+            scrollSpeed: 1000,
+
+            // fade in/out speed in milliseconds
+            fadeInSpeed: 1000,
+            fadeOutSpeed: 500
+
+        })
+
+    })
+</script>
+
+<script type="text/javascript">
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+</script>

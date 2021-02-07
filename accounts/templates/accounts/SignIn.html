@@ -1,0 +1,37 @@
+{% extends 'loginLay.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+{#  {% include 'navbar.html' %}#}
+  <div id="loginBg">
+<div class="container mt-lg-5 pt-lg-5">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-lg-auto ">
+      <div class="card card-signin my-5 ">
+        <div class="card-body bg-login">
+          <h3 class="card-title text-center green-text-2">Zaloguj się</h3>
+          <form class="form-signin" method="post">
+            {% csrf_token %}
+            {% if form.errors %}
+              <p class="text-danger text-center">
+                Twoja nazwa użytkownika i hasło się nie zgadzają,<br>
+                Proszę spróbuj ponownie.
+              </p>
+            {% endif %}
+
+            <div class="form-label-group">
+              {% render_field form.username class="form-control" id="username" placeholder="Nazwa użytkownika" attr="value":required attr="value":autofocus %}
+            </div>
+
+            <div class="form-label-group">
+              {% render_field form.password class="form-control" id="password" placeholder="hasło" attr="value":required %}
+            </div>
+            <button class="btn btn-lg btn-green btn-block text-uppercase" type="submit">Zaloguj się</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+{% endblock %}

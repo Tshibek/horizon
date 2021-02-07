@@ -1,0 +1,251 @@
+
+{% extends 'layout.html' %}
+{% block text_hero %}
+    {% include 'hero_text.html' %}
+  <div class="py-3 text-center">
+  <h1 class="m-3">Panel Gracza</h1>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="container mb-5 pb-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 ">
+        <div class="jumbotron bg-brown-2 jumbo-2">
+          <div class="row">
+
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <div class="text-center ">
+                <div class="circle mx-auto ">
+                  {% if user.username %}
+                    <img class="img-fluid mx-auto my-auto" src="https://minotar.net/bust/{{ user.username }}/80.png"/>
+                  {% else %}
+                    <img src="https://minotar.net/cube/MHF_Steve/80.png"/>
+                  {% endif %}
+                </div>
+                <div class="mx-auto">
+                  <div class="clearfix">
+                    <small class="small">Nazwa Gracza:</small>
+                    <p class="h5 pink-text">{{ user.username }}</p>
+                  </div>
+                  <div class="clearfix">
+                    <small class="small">Ranga:</small>
+                    <p class="h5 pink-text">{{ user.profile.rank }}</p>
+                  </div>
+                  <div class="clearfix">
+                    <small class="small">Zbanowany:</small>
+                    <p class="h5 pink-text">{% if user.profile.ban %}TAK{% else %}NIE{% endif %}</p>
+                  </div>
+                  <div class="clearfix">
+                    <small class="small">Zmutowany:</small>
+                    <p class="h5 pink-text">{% if user.profile.mute %}TAK{% else %}NIE{% endif %}</p>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-lg-9 col-md-9 col-sm-12">
+              <div class="text-center">
+                <h2 id="" class="text-white">Statystyki Gracza</h2>
+              </div>
+              <div class="row">
+
+                <div class="col-md-4 pt-3">
+                  <div class="card-base">
+                    <div class="card-icon">
+                      <div id="widgetCardIcon" class="imagecard">
+                        <img class="img-fluid" src="/media/skyhorizon/crossed-swords.png">
+                      </div>
+                      <div class="card-data widgetCardData bg-brown-3">
+                        <h2 class="box-title mt-4 pink-text">{{ user.profile.kills }}</h2>
+                        <p class="card-block text-center brown-text ">Zabójstwa</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 pt-3">
+                  <div class="card-base">
+                    <div class="card-icon">
+                      <div id="widgetCardIcon" class="imagecard">
+                        <img class="img-fluid pb-5" src="/media/skyhorizon/grave-flowers.png">
+                      </div>
+                      <div class="card-data widgetCardData bg-brown-3">
+                        <h2 class="box-title mt-4 pink-text">{{ user.profile.deaths }}</h2>
+                        <p class="card-block text-center brown-text ">Zgony</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="col-md-4 pt-3">
+                  <div class="card-base">
+                    <div class="card-icon">
+                      <div id="widgetCardIcon" class="imagecard">
+                        <img class="img-fluid pb-5" src="/media/skyhorizon/stabbed-note.png">
+                      </div>
+                      <div class="card-data widgetCardData bg-brown-3">
+                        <h2 class="box-title mt-4 pink-text">{{ user.profile.money_is }}</h2>
+                        <p class="card-block text-center brown-text ">Punkty pvp</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 pt-3">
+                  <div class="card-base">
+                    <div class="card-icon">
+                      <div id="widgetCardIcon" class="imagecard">
+                        <img class="img-fluid pb-5" src="/media/skyhorizon/coins.png">
+                      </div>
+                      <div class="card-data widgetCardData bg-brown-3">
+                        <h2 class="box-title mt-4 pink-text">{{ user.profile.money_is }}</h2>
+                        <p class="card-block text-center brown-text ">Skycoin's</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+              <div class="col-md-4 pt-3">
+                  <div class="card-base">
+                    <div class="card-icon">
+                      <div id="widgetCardIcon" class="imagecard">
+                        <img class="img-fluid " src="/media/skyhorizon/miner.png">
+                      </div>
+                      <div class="card-data widgetCardData bg-brown-3">
+                        <h2 class="box-title mt-4 pink-text">{% if user.profile.stone.all_stone %}{{ user.profile.stone.all_stone }}{% else %} 0 {% endif %}</h2>
+                        <p class="card-block text-center brown-text ">Wykopane stone</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 pt-3">
+                  <div class="card-base">
+                    <div class="card-icon">
+                      <div id="widgetCardIcon" class="imagecard">
+                        <img class="img-fluid pb-5" src="/media/skyhorizon/cubes.png">
+                      </div>
+                      <div class="card-data widgetCardData bg-brown-3">
+                        <h2 class="box-title mt-4 pink-text">{% if user.profile.stone.level %}
+                          {{ user.profile.stone.level }}
+                        {% else %}
+                          1
+                        {% endif %}</h2>
+                        <p class="card-block text-center brown-text ">Poziom stone</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="col-md-4 pt-3">
+                  <div class="card-base">
+                    <div class="card-icon">
+                      <div id="widgetCardIcon" class="imagecard">
+                        <img class="img-fluid pb-5" src="/media/skyhorizon/six-eyes.png">
+                      </div>
+                      <div class="card-data widgetCardData bg-brown-3">
+                        <h2 class="box-title mt-4 pink-text">{{ user.profile.join_count }}</h2>
+                        <p class="card-block text-center brown-text ">Ilość wejść</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="col-md-4 pt-3">
+                  <div class="card-base">
+                    <div class="card-icon">
+                      <div id="widgetCardIcon" class="imagecard">
+                        <img class="img-fluid pb-5" src="/media/skyhorizon/eye-target.png">
+                      </div>
+                      <div class="card-data widgetCardData bg-brown-3">
+                        <h2 class="box-title mt-4 pink-text">{{ user.date_joined |date:"SHORT_DATE_FORMAT"}}</h2>
+                        <p class="card-block text-center brown-text ">Dołączył</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-md-4 pt-3">
+                  <div class="card-base">
+                    <div class="card-icon">
+                      <div id="widgetCardIcon" class="imagecard">
+                        <img class="img-fluid pb-5" src="/media/skyhorizon/binoculars.png">
+                      </div>
+                      <div class="card-data widgetCardData bg-brown-3">
+                        <h2 class="box-title mt-4 pink-text">{{ user.last_login | date:"SHORT_DATE_FORMAT" }}</h2>
+                        <p class="card-block text-center brown-text ">Ostatnio widziany</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+              <div class="col-lg-12 text-center">
+                <h2 class="pt-5 pb-3 text-white">Ranking gracza</h2>
+              </div>
+
+              <div class="col-md-4 pt-3">
+                  <div class="card-base">
+                    <div class="card-icon">
+                      <div id="widgetCardIcon" class="imagecard">
+                         <img class="img-fluid" src="/media/skyhorizon/swords-emblem.png">
+                      </div>
+                      <div class="card-data widgetCardData bg-brown-3">
+                        <h2 class="box-title mt-4 pink-text">#{% if user.profile.ranking_pvp %}{{ user.profile.ranking_pvp }}{% else %}-{% endif %}</h2>
+                        <p class="card-block text-center brown-text ">PVP</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="col-md-4 pt-3">
+                  <div class="card-base">
+                    <div class="card-icon">
+                      <div id="widgetCardIcon" class="imagecard">
+                        <span class="fas fa-coins"></span>
+                      </div>
+                      <div class="card-data widgetCardData bg-brown-3">
+                        <h2 class="box-title mt-4 pink-text">#{% if user.profile.stone.ranking_lvl %}{{ user.profile.stone.ranking_lvl }}{% else %}-{% endif %}</h2>
+                        <p class="card-block text-center brown-text ">Stone Level</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="col-md-4 pt-3">
+                  <div class="card-base">
+                    <div class="card-icon">
+                      <div id="widgetCardIcon" class="imagecard">
+                        <span class="fas fa-coins"></span>
+                      </div>
+                      <div class="card-data widgetCardData bg-brown-3">
+                        <h2 class="box-title mt-4 pink-text">#{% if user.profile.stone.ranking_stone %}{{ user.profile.stone.ranking_stone }}{% else %}-{% endif %}</h2>
+                        <p class="card-block text-center brown-text ">Wykopanych Stone</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

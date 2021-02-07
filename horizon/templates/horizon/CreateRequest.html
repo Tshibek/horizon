@@ -1,0 +1,52 @@
+{% extends 'layout2.html' %}
+{% load widget_tweaks %}
+{% block content %}
+  {% include 'ImgText.html' %}
+  <div class="container">
+    {% if messages %}
+      {% for message in messages %}
+        <div {% if message.tags %}{% if message.tags == "error" %}class="alert alert-danger text-center"
+             {% else %}class="alert alert-{{ message.tags }} text-center"{% endif %}{% endif %} role="alert">
+          <h4 class="alert-heading">{% if message.tags == "success" %}Dziękujemy!{% else %}
+            Przepraszamy!{% endif %}</h4>
+          <p class="text-border">{{ message | safe }}</p>
+        </div>
+      {% endfor %}
+    {% endif %}
+    <div class="login-form h-75 d-flex justify-content-center">
+      <div class="my-auto text-center">
+        <h1 class="green-text">ZGŁOSZENIE</h1>
+        <p class="text-white">Wyślij zgłoszenie, wraz z dowodami!</p>
+        <form method="post" novalidate>
+          {% csrf_token %}
+          <div class="pt-2">
+            {% render_field form.user class="form-control" %}
+          </div>
+          <div class="pt-3">
+            {% render_field form.title class="form-control" placeholder="Tytuł" %}
+          </div>
+          <div class="">
+            {% render_field form.content class="form-control" placeholder="Wiadomość dla administratora" %}
+          </div>
+          <div class="pt-2">
+            {% render_field form.evidence class="form-control" placeholder="Link do zdjęć/filmiku" %}
+          </div>
+          <div class="py-3">
+            <button type="submit" class="btn btn-green">Wyślij Zgłoszenie</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block extrascripts %}
+  {% if messages %}
+    <script type="text/javascript">
+        setTimeout(function () {
+            window.location.href = "/";
+        }, 3500);
+    </script>
+  {% endif %}
+{% endblock %}

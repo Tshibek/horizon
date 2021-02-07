@@ -1,0 +1,27 @@
+<div class="row justify-content-center my-5">
+  <img src="/media/skyhorizon/fight.png" class="img-fluid ml-lg-3" width="350" height="250">
+  <div class="col-lg-12">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <form class="" method="get" action="{% url 'horizon:search' %}">
+          <div class="row no-gutters align-items-center">
+            <div class="col-auto">
+              <i class="h4 text-body"></i>
+            </div>
+            <!--end of col-->
+            <div class="col">
+              <input  name="q" class="form-control form-control-lg form-control-borderless" type="search"
+                     placeholder="Wpisz nick gracza">
+            </div>
+            <!--end of col-->
+            <div class="col-auto ml-2">
+              <button class="btn btn-lg btn-grey" type="submit">Szukaj</button>
+            </div>
+            <!--end of col-->
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

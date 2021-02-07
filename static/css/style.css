@@ -1,0 +1,307 @@
+html,
+body {
+    height: 100%;
+    color: #E4D9D2;
+    background-color: #C2B9B0 !important;
+}
+a, a:hover {
+    text-decoration: none!important;
+    color: #E7717D!important;
+}
+
+.bg-green {
+    background-color: none !important;
+
+}
+
+.bg-brown {
+    background-color: #C2B9B0 !important;
+}
+
+.logo h1 {
+    font-size: 5rem;
+}
+
+.navbar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.navbar-nav a {
+    color: #C2B9B0 !important;
+    font-size: 18px;
+
+
+}
+
+.navbar-nav a:hover {
+    color: #E4D9D2 !important;
+    padding-bottom: 0px !important;
+    border-bottom: 2px solid #E7717D;
+}
+
+.logo img {
+    margin: 2%;
+    width: 15rem;
+    height: 10rem;
+}
+
+.hero {
+    background-image: linear-gradient(rgba(175, 210, 117, 0.1), rgba(194, 202, 208, 0.25)), url('../../media/skyhorizon/header.jpg');
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50px !important;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+
+.pink-text {
+    color: #E7717D;
+}
+
+.green-text {
+    color: #AFD275 !important;
+    animation: neon .08s ease-in-out infinite alternate;
+}
+
+.brown-text {
+    color: #E4D9D2 !important;
+}
+
+.btn-pink {
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    background-color: #7E685A !important;
+    color: #C2B9B0 !important;
+}
+
+.bg-brown-2 {
+    background-color: #7E685A !important;
+
+}
+
+.btn-pink:hover {
+    background-color: #8F796B !important;
+    color: #E4D9D2 !important;
+}
+
+.upper {
+    text-transform: uppercase !important;
+}
+
+.uppercase {
+    padding: 0.35rem;
+    font-size: 12px;
+    text-transform: uppercase !important;
+    color: #7E685A;
+}
+
+.jumbotron {
+    font-size: 20px !important;
+}
+
+.jumbotron strong {
+    color: #E7717D;
+}
+
+.jumbo {
+    margin-top: -32px !important;
+}
+
+
+.btn-grey {
+    background-color: #E3C9C1 !important;
+    color: #E7717D;
+}
+.btn-grey:hover {
+    background-color: #F4D9D2 !important;
+    color: #F8828E;
+}
+
+
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover,
+.form-control-borderless:active,
+.form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: #E7717D;
+}
+
+
+.icon {
+    /*! margin-bottom: 10px; */
+    display: table;
+    /*! position: absolute; */
+    /*! top: 0; */
+    /*! left: 0; */
+    border: 2px solid #3A241A;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    text-align: center;
+    margin: 0 auto 30px auto;
+
+    /*! margin-bottom: 20px; */
+}
+
+.txt {
+    color: #7E685A !important;
+}
+
+.icon i {
+    color: #F8828E;
+    display: table-cell;
+    vertical-align: middle;
+    height: 90px;
+    font-size: 50px;
+}
+
+
+.bg-ranking {
+
+    border-radius: 10px;
+    width: 90%;
+    background-color: #D6606C;
+
+    color: #AFD275;
+}
+
+.bg-ranking:hover {
+    background-color: #E7717D;
+    color: #AEC164;
+}
+
+
+.context-dark, .bg-gray-dark, .bg-primary {
+    color: #C2CAD0;
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+    color: #E7717D;
+}
+
+.nav-list li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nav-list li a:hover:before {
+    margin-left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 23px;
+    font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.social-container .col {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fa-facebook-f, .fa-discord, .fa-teamspeak {
+    color: white;
+    padding: 1rem;
+    font-size: 50px;
+}
+
+
+.box-part {
+    background: #FFF;
+    border-radius: 15px;
+    padding: 60px 10px;
+    margin: 30px 20px;
+}
+
+.text {
+    margin: 20px 0;
+}
+
+
+.jumbo-2 {
+    border-radius: 25px;
+    margin-top: -50px;
+}
+
+.circle {
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    background-color: #5C463A;
+    border: 5px solid #3A241A;
+
+}
+
+.circle img {
+    padding: 12% 0;
+}
+
+.small {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+
+.card-base > .card-icon {
+    text-align: center;
+    position: relative;
+}
+
+.imagecard {
+    z-index: 2;
+    display: block;
+    positioN: relative;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    border: 5px solid #5C463A;
+    box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin: 0 auto;
+}
+
+.card-base > .card-icon > .card-data {
+    margin-top: -40px;
+    padding: 15px 0 10px 0;
+    box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+#widgetCardIcon {
+    background: #7E685C !important;
+    font-size: 28px;
+    line-height: 78px;
+}
+#widgetCardIcon img{
+    padding: 0.8rem;
+    line-height: 75px;
+}
+
+.bg-brown-3{
+    background-color: #8F796D!important;
+}
+
+.fa-coins, .fa-skull, .fa-level-up-alt, .fa-eye{
+    font-size: 50px;
+    padding: 0.8rem;
+    text-shadow: 3px 3px 15px #000000;
+}

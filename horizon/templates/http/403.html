@@ -1,0 +1,13 @@
+{% extends 'http.html' %}
+
+{% block content %}
+  <div id="loginBg">
+    <div class="container h-100">
+      <div class="row h-100 justify-content-center align-items-center">
+        <h1>BŁĄD 403</h1>
+        <p>Dostęp zabroniony!</p>
+        <a href="{% url 'horizon:home' %}" class="achange btn btn-green btn-lg">Wróc na Strone Główna</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

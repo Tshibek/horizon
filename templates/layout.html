@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <title>SkyHorizon.PL | Najlepszy serwer SkyBlock!</title>
+  {% include 'head.html' %}
+</head>
+<body>
+<div id="page">
+  <div class="hero text-center">
+    <div class="hero-inner">
+      <div class="container-fluid">
+
+        <!-- HEADER -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-green py-5">
+          <a class="navbar-brand" href="{% url 'horizon:home' %}">SkyHorizon</a>
+          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'horizon:news_list' %}">Nowości <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'horizon:rules' %}">Regulamin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'horizon:faq' %}">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'horizon:ranking' %}">Ranking</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'horizon:bans' %}">Lista zbanowanych</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'horizon:admins' %}">Administracja</a>
+              </li>
+            </ul>
+            <div class="">
+              {% if not request.user.is_authenticated %}
+              <a href="{% url 'user:login' %}" class="btn btn-md btn-pink mr-1">Panel Gracza</a>
+              {% else %}
+              <a href="{% url 'user:profile' username=request.user.username %}" class="btn btn-md btn-pink mr-1">{{ request.user.username }}</a>
+              {% endif %}
+              <a href="" class="btn btn-md btn-pink">Sklep</a>
+            </div>
+          </div>
+        </nav>
+        <!-- END HEADER -->
+
+
+        <!-- Text Header -->
+        <div class="col-lg-8 mx-auto mt-5">
+          {% block text_hero %} {% endblock %}
+        </div>
+        <!-- Text Header -->
+
+      </div>
+
+    </div>
+  </div>
+  {% block content %}
+  {% endblock content %}
+  {% include 'footer.html' %}
+</div>
+{% include 'scripts.html' %}
+{% block extrascripts %}
+{% endblock extrascripts %}
+</body>
+</html>

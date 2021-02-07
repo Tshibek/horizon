@@ -1,0 +1,64 @@
+<div class="col-lg-5">
+  <span>Status serwera: <strong class="">ONLINE</strong></span>
+  <div class="py-3">
+    <strong class="">0</strong>
+    <p class="uppercase">Aktywnych graczy</p>
+  </div>
+
+  <div class="row">
+
+    <div class="col-lg-6 col-sm-6">
+
+      <div class="clearfix">
+        <strong>
+          {% if user_uniq >= 1 %}
+            {{ user_uniq }}
+          {% else %}
+            0
+          {% endif %}
+
+        </strong>
+        <p class="uppercase">Unikalnych graczy</p>
+      </div>
+
+      <div class="clearfix">
+        <strong>
+          {% if stone >= 1 %}
+            {{ stone |safe }}
+          {% else %}
+            0
+          {% endif %}
+        </strong>
+        <p class="uppercase">Wykopane Stone</p>
+      </div>
+
+    </div>
+
+    <div class="col-lg-6 col-sm-6">
+
+      <div class="clearfix">
+        <strong>
+
+          {% if ban_count >= 1 %}
+            {{ ban_count |safe }} {% else %}
+            0
+          {% endif %}
+        </strong>
+        <p class="uppercase">Ilość banów</p>
+      </div>
+
+      <div class="clearfix">
+        <strong class="">
+          {% if buy_count >= 1 %}
+            {{ buy_count |safe }}
+          {% else %}
+            0
+          {% endif %}
+        </strong>
+        <p class="uppercase">Zakupione usługi</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>

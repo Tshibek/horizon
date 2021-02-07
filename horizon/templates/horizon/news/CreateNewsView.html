@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% load widget_tweaks %}
+{% block content %}
+  <div class="jumbotron jumbotron-fluid jumbotron-fluid bg-brown-2">
+    <div class="container text-center animated lightSpeedIn delay-2s text-white">
+      {% if messages %}
+        {% for message in messages %}
+          <div {% if message.tags %}{% if message.tags == "error" %}class="alert alert-danger text-center"
+               {% else %}class="alert alert-{{ message.tags }} text-center"{% endif %}{% endif %} role="alert">
+            <h4 class="alert-heading">{% if message.tags == "success" %}Dziękujemy!{% else %}
+              Przepraszamy!{% endif %}</h4>
+            <p class="text-border">{{ message | safe }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+      <h1 class="green-text">Stwórz News'a</h1>
+      <p>Dodaj nowego news'a</p>
+      <div class="d-flex justify-content-center h-100">
+        <form method="post" action="" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.media }}
+          <div class="pt-2">
+            {% render_field form.title class="form-control" placeholder="Dodaj tytuł" %}
+          </div>
+          <div class="pt-2 mt-2 custom-file">
+            {% render_field form.img class="custom-file-input" type="file" id="customFile"  %}
+            <label class="custom-file-label" for="customFile">Wybierz zdjęcie</label>
+          </div>
+          <div class="pt-2">
+            {% render_field form.content class="form-control" %}
+          </div>
+          <div class="pt-2">
+            <button type="submit" class="btn btn-green">Dodaj posta</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

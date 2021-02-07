@@ -1,0 +1,19 @@
+from skyhorizon.settings.common import *
+
+SECRET_KEY = secrets['secret_key']
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
+ALLOWED_HOSTS = ['']
+# WINDOWS
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': secrets['database_name'],
+        'USER': secrets['database_user'],
+        'PASSWORD': secrets['database_password'],
+        'HOST': secrets['database_host'],
+        'PORT': secrets['database_port'],
+    }
+}

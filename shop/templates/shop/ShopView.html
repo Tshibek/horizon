@@ -1,0 +1,17 @@
+{% extends 'layout2.html' %}
+{% block content %}
+  {% include 'ImgText.html' %}
+  {% include 'shop/assets/ShopLayout.html' %}
+
+{% endblock content %}
+
+
+{% block extrascripts %}
+<script type="text/javascript">
+function sliderChange(val) {
+    document.getElementById('output-sms').innerHTML = val+" zł ";
+}
+document.getElementById('sms').value = 20;
+
+</script>
+{% endblock %}

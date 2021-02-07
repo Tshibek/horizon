@@ -1,0 +1,22 @@
+<tr class="green-text font-weight-bold text-center">
+          <td>{{ report.user }}</td>
+          <td class="">{{ report.status }}</td>
+          <td>{{ report.report_user }}</td>
+          <td>{{ report.created }}</td>
+          <td>{% if report.mod %}{{ report.mod.user.username }}{% else %}-{% endif %}</td>
+          <td>
+            <p data-placement="top" data-toggle="tooltip" title="Zobacz">
+              <button class="btn btn-danger btn-xs" data-title="Zobacz" data-toggle="modal"
+                      data-target="#detail-{{ report.pk }}"><i
+                    class="fas fa-eye"></i></button>
+            </p>
+          </td>
+          <td>
+            {% if admin %}
+            <p data-placement="top" data-toggle="tooltip" title="Edit">
+              <button class="btn btn-success update-btn btn-xs" data-id="{% url 'horizon:report_update' pk=report.pk %}"><i
+                    class="fas fa-edit pl-1"></i></button>
+            </p>
+            {% endif %}
+          </td>
+        </tr>

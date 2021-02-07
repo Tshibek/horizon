@@ -1,0 +1,54 @@
+{% extends 'layout2.html' %}
+{% load widget_tweaks %}
+{% block content %}
+  {% include 'ImgText.html' %}
+  <div class="jumbotron jumbotron-fluid bg-own-2 shop">
+    <div class="container text-center text-white">
+      <h1 class="green-text animated bounceInDown slow">Płatność SMS+</h1>
+      <p class="py-3 h6 animated fadeInLeft slow">Tutaj możesz doładować swój portfel na serwerze, lub kupić unbana!</p>
+      <div class="text-center">
+
+      </div>
+      <div class="row">
+        <div class="offset-3 col-lg-6 my-sm-5 pt-5 animated rollIn slow delay-1s">
+          <div class="card black-card mx-sm-1 p-3 text-center my-auto">
+            <div class="card circle p-3 my-card-2 text-center">
+              <i class="fas fa-wallet"></i>
+            </div>
+            <div class="green-text text-center mt-5">
+              <h3 class="font-weight-bold">Doładuj Portfel</h3>
+            </div>
+            <div class="pt-4">
+              <form action="" method="post">
+                {% csrf_token %}
+                <label for='{{ form.sms_code }}'>Kod zwrotny SMS</label>
+                {% render_field form.sms_code class="form-control" %}
+                <div class="mt-4">
+                  {% render_field form.money class="form-control-range" min="1.23" step="1.23" max="30.75" type="range" id="sms" oninput="sliderChange(this.value)" %}
+                </div>
+                <div class="text-center text-white py-2">
+                  <output id="output-sms" class="green-text font-weight-bold"></output>
+                </div>
+                <input type="submit" class="btnb btn-green btn-lg" value="Dodaj">
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+
+{% block extrascripts %}
+  <script type="text/javascript">
+      function sliderChange(val) {
+          document.getElementById('output-sms').innerHTML = val + " zł ";
+      }
+
+      document.getElementById('sms').value = 11.07;
+
+  </script>
+{% endblock %}
+
